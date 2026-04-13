@@ -11,10 +11,11 @@ import com.unqiuehire.kashflow.exception.ResourceNotFoundException;
 import com.unqiuehire.kashflow.repository.LoanApplicationRepository;
 import com.unqiuehire.kashflow.service.LoanApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
 public class LoanApplicationServiceImpl implements LoanApplicationService {
     @Autowired
     private LoanApplicationRepository repository;
