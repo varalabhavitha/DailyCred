@@ -1,4 +1,4 @@
-package com.unqiuehire.kashflow.serviceImpl;
+package com.unqiuehire.kashflow.serviceimpl;
 import com.unqiuehire.kashflow.constant.ApiStatus;
 import com.unqiuehire.kashflow.constant.LenderConstants;
 import com.unqiuehire.kashflow.dto.requestdto.LenderRequestDto;
@@ -26,13 +26,14 @@ public class LenderServiceImpl implements LenderService {
         Lender lender = new Lender();
 
         lender.setLenderName(lenderRequestDto.getLenderName());
-        lender.setCibil(lenderRequestDto.getCibil());
         lender.setDateOfBirth(LocalDate.parse(lenderRequestDto.getDateOfBirth()));
         lender.setPassword(lenderRequestDto.getPassword());
         lender.setIsActive(lenderRequestDto.getIsActive());
         lender.setPhoneNumber(lenderRequestDto.getPhoneNumber());
         lender.setPincode(lenderRequestDto.getPincode());
         lender.setAddress(lenderRequestDto.getAddress());
+        lender.setAadharCardNumber(lenderRequestDto.getAadharCardNumber());
+        lender.setPanCardNumber(lenderRequestDto.getPanCardNumber());
 
         Lender savedLender = lenderRepository.save(lender);
 
@@ -98,7 +99,6 @@ public class LenderServiceImpl implements LenderService {
         Lender lender = optionalLender.get();
 
         lender.setLenderName(lenderRequestDto.getLenderName());
-        lender.setCibil(lenderRequestDto.getCibil());
         lender.setDateOfBirth(LocalDate.parse(lenderRequestDto.getDateOfBirth()));
         lender.setPassword(lenderRequestDto.getPassword());
         lender.setIsActive(lenderRequestDto.getIsActive());
@@ -142,12 +142,13 @@ public class LenderServiceImpl implements LenderService {
         LenderResponseDto responseDto = new LenderResponseDto();
         responseDto.setLenderId(lender.getLenderId());
         responseDto.setLenderName(lender.getLenderName());
-        responseDto.setCibil(lender.getCibil());
         responseDto.setDateOfBirth(String.valueOf(lender.getDateOfBirth()));
         responseDto.setIsActive(lender.getIsActive());
         responseDto.setPhoneNumber(lender.getPhoneNumber());
         responseDto.setPincode(lender.getPincode());
         responseDto.setAddress(lender.getAddress());
+        responseDto.setAadharCardNumber(lender.getAadharCardNumber());
+        responseDto.setPanCardNumber(lender.getPanCardNumber());
         return responseDto;
     }
 }
