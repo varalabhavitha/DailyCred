@@ -35,35 +35,61 @@ public class RepaymentServiceImpl implements RepaymentService {
         LoanApplication loanApplication = loanApplicationRepository.findById(request.getLoanApplicationId())
                 .orElseThrow(() -> new RuntimeException("Loan Application not found"));
 
-        //  VALIDATION
+        // ✅ VALIDATION
         if (!loan.getLoanApplicationId().equals(request.getLoanApplicationId())) {
-            throw new RuntimeException("Loan does not belong to given LoanApplication");
+            throw new RuntimeException("Loan mismatch");
         }
 
-        //  Update remaining amount
-        double remaining = loan.getRemainingAmount() - request.getAmountPaid();
+        double amount = request.getAmountPaid();
+        double remaining = loan.getRemainingAmount();
 
-        if (remaining < 0) {
-            throw new RuntimeException("Payment exceeds remaining amount");
+        // 🔥 BUSINESS LOGIC
+
+        boolean isPartial = amount < loan.getDailyEmi();
+        boolean isMissed = request.getMissedDays() != null && request.getMissedDays() > 0;
+        boolean isEarly = amount > loan.getDailyEmi();
+
+        double interest = 0;
+        double penalty = 0;
+
+        if (isMissed) {
+            interest = loan.getInterestPerDay() * request.getMissedDays();
+            penalty = loan.getPenaltyAmount() * request.getMissedDays();
         }
 
-        loan.setRemainingAmount(remaining);
+        double newRemaining = remaining - amount + interest + penalty;
 
-        if (remaining == 0) {
+        if (newRemaining < 0) {
+            throw new RuntimeException("Over payment not allowed");
+        }
+
+        loan.setRemainingAmount(newRemaining);
+
+        if (newRemaining == 0) {
             loan.setIsClosed(true);
         }
 
         loanRepository.save(loan);
 
-        // Create repayment
+        // ✅ Save repayment
         Repayment repayment = Repayment.builder()
                 .loan(loan)
                 .loanApplication(loanApplication)
-                .amountPaid(request.getAmountPaid())
+                .amountPaid(amount)
                 .paymentDate(LocalDate.now())
                 .paymentMode(request.getPaymentMode())
                 .paymentStatus(PaymentStatus.SUCCESS)
                 .transactionReference(UUID.randomUUID().toString())
+
+                .isPartialPayment(isPartial)
+                .isEarlyPayment(isEarly)
+                .isMissedPayment(isMissed)
+
+                .interestAdded(interest)
+                .penaltyAmount(penalty)
+                .missedDays(request.getMissedDays())
+
+                .balanceAmount(newRemaining)
                 .build();
 
         repaymentRepository.save(repayment);
@@ -94,7 +120,18 @@ public class RepaymentServiceImpl implements RepaymentService {
                 .paymentDate(r.getPaymentDate())
                 .paymentMode(r.getPaymentMode())
                 .paymentStatus(r.getPaymentStatus())
+
+                .isPartialPayment(r.getIsPartialPayment())
+                .isEarlyPayment(r.getIsEarlyPayment())
+                .isMissedPayment(r.getIsMissedPayment())
+
+                .interestAdded(r.getInterestAdded())
+                .penaltyAmount(r.getPenaltyAmount())
+                .missedDays(r.getMissedDays())
+
+                .balanceAmount(r.getBalanceAmount())
+
                 .transactionReference(r.getTransactionReference())
                 .build();
     }
-}   
+}
