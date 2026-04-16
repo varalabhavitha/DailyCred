@@ -1,11 +1,12 @@
 //package com.unqiuehire.kashflow.dto.responsedto;
-//
-//import lombok.AllArgsConstructor;
 //import lombok.Getter;
+//import lombok.Setter;
 //
 //@Getter
-//@AllArgsConstructor
-//public class LoginResponse {
+//@Setter
+//public class LoginResponseDto {
 //    private String token;
 //    private String role;
+//    private Long userId;
+//    private String phoneNumber;
 //}
