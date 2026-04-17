@@ -3,4 +3,9 @@ import com.unqiuehire.kashflow.entity.Lender;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LenderRepository extends JpaRepository<Lender, Long> {
+    boolean existsByAadharCardNumber(String aadharCardNumber);
+
+    boolean existsByPanCardNumber(String panCardNumber);
+
+    boolean existsByPhoneNumber(String phoneNumber);
 }
