@@ -14,7 +14,19 @@ public class RepaymentResponseDTO {
     private Long id;
     private Double amountPaid;
     private LocalDate paymentDate;
+
     private PaymentMode paymentMode;
     private PaymentStatus paymentStatus;
+
+    private Boolean isPartialPayment;
+    private Boolean isEarlyPayment;
+    private Boolean isMissedPayment;
+
+    private Double interestAdded;
+    private Double penaltyAmount;
+    private Integer missedDays;
+
+    private Double balanceAmount;
+
     private String transactionReference;
 }

@@ -6,5 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface BorrowerRepository extends JpaRepository<Borrower,Long> {
-    Optional<Borrower> findByPhoneNumber(String phoneNumber);
+    Optional<Borrower> findByAadharCardNumber(String aadharCardNumber);
+    Optional<Borrower> findByPanCardNumber(String panCardNumber);
+    Optional<Borrower> findByPhoneNumber (String phoneNumber);
 }

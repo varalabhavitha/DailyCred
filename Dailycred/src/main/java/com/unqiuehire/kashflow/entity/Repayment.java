@@ -1,6 +1,5 @@
 package com.unqiuehire.kashflow.entity;
 
-import com.unqiuehire.kashflow.entity.LoanApplication;
 import com.unqiuehire.kashflow.constant.PaymentMode;
 import com.unqiuehire.kashflow.constant.PaymentStatus;
 import jakarta.persistence.*;
@@ -41,4 +40,19 @@ public class Repayment {
     @ManyToOne
     @JoinColumn(name = "loan_applications_id", nullable = false)
     private LoanApplication loanApplication;
+
+    // ================= NEW FIELDS =================
+
+    // 🔹 Payment Behavior
+    private Boolean isPartialPayment;
+    private Boolean isEarlyPayment;
+    private Boolean isMissedPayment;
+
+    // 🔹 Interest & Penalty
+    private Double interestAdded;
+    private Double penaltyAmount;
+    private Integer missedDays;
+
+    // 🔹 Balance Tracking
+    private Double balanceAmount;
 }
