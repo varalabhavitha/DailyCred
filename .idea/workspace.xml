@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9b9adb6c-f160-43bf-a547-10fa62c93b2b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dailycred/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dailycred/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dailycred/src/main/java/com/unqiuehire/kashflow/serviceimpl/BorrowerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dailycred/src/main/java/com/unqiuehire/kashflow/serviceimpl/BorrowerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dailycred/src/main/java/com/unqiuehire/kashflow/entity/Repayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dailycred/src/main/java/com/unqiuehire/kashflow/entity/Repayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dailycred/src/main/java/com/unqiuehire/kashflow/serviceimpl/RepaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dailycred/src/main/java/com/unqiuehire/kashflow/serviceimpl/RepaymentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dailycred/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Dailycred/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
