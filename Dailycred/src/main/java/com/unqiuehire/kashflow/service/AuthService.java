@@ -1,10 +1,13 @@
 //package com.unqiuehire.kashflow.service;
+//import com.unqiuehire.kashflow.dto.requestdto.LoginRequestDto;
+//import com.unqiuehire.kashflow.dto.responsedto.ApiResponse;
+//import com.unqiuehire.kashflow.dto.responsedto.LoginResponseDto;
+//import org.springframework.stereotype.Service;
 //
-//import com.unqiuehire.kashflow.dto.requestdto.LoginRequest;
-//import com.unqiuehire.kashflow.dto.responsedto.LoginResponse;
-//
+//@Service
 //public interface AuthService {
 //
-//    LoginResponse login(LoginRequest request, String role);
+//    ApiResponse<LoginResponseDto> borrowerLogin(LoginRequestDto dto);
 //
+//    ApiResponse<LoginResponseDto> lenderLogin(LoginRequestDto dto);
 //}
