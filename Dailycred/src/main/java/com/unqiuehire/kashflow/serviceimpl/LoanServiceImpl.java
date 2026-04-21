@@ -1,4 +1,4 @@
-package com.unqiuehire.kashflow.serviceImpl;
+package com.unqiuehire.kashflow.serviceimpl;
 import com.unqiuehire.kashflow.constant.ApiStatus;
 import com.unqiuehire.kashflow.dto.requestdto.LoanRequestDto;
 import com.unqiuehire.kashflow.dto.responsedto.ApiResponse;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 public class LoanServiceImpl implements LoanService {
-g
+
     private final LoanRepository loanRepository;
 
     public LoanServiceImpl(LoanRepository loanRepository) {
