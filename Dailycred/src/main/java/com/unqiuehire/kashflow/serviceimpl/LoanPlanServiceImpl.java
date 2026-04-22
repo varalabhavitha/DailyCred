@@ -41,7 +41,9 @@ public class LoanPlanServiceImpl implements LoanPlanService {
         loanPlan.setInterestPerDay(request.getInterestPerDay());
         loanPlan.setPenaltyAmount(request.getPenaltyAmount());
         loanPlan.setPlanDuration(request.getPlanDuration());
-        loanPlan.setMaxRadius(request.getMaxRadius());
+
+//        loanPlan.setMaxRadius(request.getMaxRadius());
+
         loanPlan.setMinCibil(request.getMinCibil());
 
         // SAFE ENUM CONVERSION
@@ -102,7 +104,9 @@ public class LoanPlanServiceImpl implements LoanPlanService {
         plan.setInterestPerDay(request.getInterestPerDay());
         plan.setPenaltyAmount(request.getPenaltyAmount());
         plan.setPlanDuration(request.getPlanDuration());
-        plan.setMaxRadius(request.getMaxRadius());
+
+//        plan.setMaxRadius(request.getMaxRadius());
+
         plan.setMinCibil(request.getMinCibil());
 
         //  SAFE ENUM
@@ -146,7 +150,9 @@ public class LoanPlanServiceImpl implements LoanPlanService {
         response.setInterestPerDay(entity.getInterestPerDay());
         response.setPenaltyAmount(entity.getPenaltyAmount());
         response.setPlanDuration(entity.getPlanDuration());
-        response.setMaxRadius(entity.getMaxRadius());
+
+//        response.setMaxRadius(entity.getMaxRadius());
+
         response.setMinCibil(entity.getMinCibil());
         response.setStatus(entity.getStatus().name());
 

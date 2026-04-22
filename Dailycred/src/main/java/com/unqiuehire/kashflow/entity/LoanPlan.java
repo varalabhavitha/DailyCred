@@ -1,5 +1,6 @@
 package com.unqiuehire.kashflow.entity;
 
+import com.unqiuehire.kashflow.constant.EmployeeType;
 import com.unqiuehire.kashflow.constant.LoanPlanStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,8 +23,17 @@ public class LoanPlan {
     private double interestPerDay;
     private double penaltyAmount;
     private int planDuration;
-    private double maxRadius;
+//    private double maxRadius;
     private int minCibil;
+
+    private Integer minAge;
+    private Integer MaxAge;
+    private double minMonthlyIncome;
+    private String servicePinCode;
+    private Integer maxActiveLoans;
+
+    @Enumerated(EnumType.STRING)
+    private EmployeeType employeeType;
 
     @Enumerated(EnumType.STRING)
     private LoanPlanStatus status;
