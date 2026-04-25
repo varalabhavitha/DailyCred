@@ -19,7 +19,7 @@ public class LoanPlan {
     private Long id;
 
     private String planName;
-    private Long lenderId;
+//    private Long lenderId;
     private double amount;
     private double interestPerDay;
     private double penaltyAmount;
@@ -37,4 +37,8 @@ public class LoanPlan {
 
     @Enumerated(EnumType.STRING)
     private LoanPlanStatus status;
+    @ManyToOne
+    @JoinColumn(name = "lender_id", nullable = false)
+    private Lender lender;
+
 }

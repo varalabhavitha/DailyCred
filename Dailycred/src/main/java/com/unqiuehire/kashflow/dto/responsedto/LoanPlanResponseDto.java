@@ -1,5 +1,6 @@
 package com.unqiuehire.kashflow.dto.responsedto;
 import com.unqiuehire.kashflow.constant.EmployeeType;
+import com.unqiuehire.kashflow.constant.LoanPlanStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -25,5 +26,5 @@ public class LoanPlanResponseDto {
     private Integer maxActiveLoans;
     private EmployeeType employeeType;
 
-    private String status;
+    private LoanPlanStatus status;
 }
